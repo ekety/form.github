@@ -1,0 +1,235 @@
+@import 'mixins';
+@import 'vars';
+
+
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.main {
+    padding: 50px 0 90px 0;
+}
+
+
+.center {
+    margin: 0 auto;
+    background: #fff;
+}
+
+.form {
+    padding-top: 32px;
+    overflow: hidden;
+
+    &__contact {
+        border-bottom: 2px solid rgba(#999, 0.1);
+    }
+
+    &__img {
+        
+        img {
+           padding: 5px 22px; 
+        }
+    }
+
+    &__inputs {
+        width: 100%;
+        padding: 0 22px 32px 0;
+        position: relative;
+
+        .input + .input {
+            margin-top: 33px;
+        }
+
+        .input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 10px;
+            outline: none;
+            color: #666666;
+            font-weight: 500;
+            text-transform: uppercase;
+            opacity: 0.8;
+            font-size: 12px;
+
+            &::placeholder {
+                color: #666666;
+                font-weight: 500;
+                text-transform: uppercase;
+                opacity: 0.8;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.approved {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+.skills {
+    padding: 0 22px 37px 22px;
+    border-bottom: 2px solid rgba(#999, 0.1);
+
+    &__title {
+        padding: 37px 0 25px 0;
+        font-size: 18px;
+    }
+
+    .label__checkbox + .label__checkbox {
+        padding-top: 35px;
+    }
+
+    .mycheckbox + .mycheckbox {
+        padding-top: 40px;
+    }
+
+    .mycheckbox {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+
+        &__default {
+            display: none;
+        }
+
+        &__descr {
+            opacity: 0.8;
+        }
+    }
+
+    .mycheckbox__default:checked + .mycheckbox__new::after {
+        height: 20px;
+        width: 20px;
+        border-radius: 4px;
+    }
+
+    .mycheckbox__default:checked + .mycheckbox__new::before {
+        width: 13px;
+        height: 10px;
+    }
+
+    .mycheckbox__new {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        margin-right: 9px;
+        position: relative;
+        flex-shrink: 0;
+        background: #eeeeee;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            background: #0093d7;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: 0.2s ease-in;
+            transition: 0.2s ease-in;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            background: url(../images/check.png);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+    }
+
+
+
+
+
+}
+
+
+.speedometer {
+    padding: 57px 0 60px 22px;
+    overflow: hidden;
+
+    &__text {
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    &__number {
+        font-size: 50px;
+        color: #0093d7;
+        font-weight: 900;
+    }
+}
+
+.speedometer__img {
+    position: relative;
+    display: inline-block;
+
+    .arrow {
+        position: absolute;
+        right: 47%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 50px solid #3e3d40;
+        -webkit-animation: move 5s infinite;
+        transform: rotate(0deg);
+        transform-origin: bottom;
+
+
+        &::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: #3e3d40;
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            right: -10px;
+        }
+    }
+
+    @-webkit-keyframes move {
+        0% {
+            transform: rotate(-90deg);
+        }
+
+        50% {
+            transform: rotate(90deg);
+        }
+
+        100% {
+            transform: rotate(-90deg);
+        }
+    }
+}
